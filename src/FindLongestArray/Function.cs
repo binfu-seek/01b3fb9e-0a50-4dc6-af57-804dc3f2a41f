@@ -16,6 +16,13 @@ public class Function
     /// <returns></returns>
     public string FunctionHandler(string input, ILambdaContext context)
     {
-        return input.ToUpper();
+        try
+        {
+            return "Success: " + input.ToUpper();
+        } catch (Exception e)
+        {
+            Console.WriteLine(e);
+            return "Something went wrong";
+        }
     }
 }
