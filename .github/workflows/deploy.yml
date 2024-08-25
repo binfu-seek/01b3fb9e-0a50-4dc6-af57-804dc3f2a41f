@@ -19,10 +19,15 @@ jobs:
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           AWS_REGION: ${{ secrets.AWS_REGION }}
         run: |
+          echo "Logging into ECR for account $AWS_ACCOUNT_ID in region $AWS_REGION"
           aws ecr get-login-password --region $AWS_REGION | docker login --username AWS --password-stdin $AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com
 
       - name: Build and push Docker image
+        env:
+          AWS_ACCOUNT_ID: ${{ secrets.AWS_ACCOUNT_ID }}
+          AWS_REGION: ${{ secrets.AWS_REGION }}
         run: |
+          echo "Build and push Docker image for account $AWS_ACCOUNT_ID in region $AWS_REGION"
           docker build -t find-longest-array .
           docker tag find-longest-array:latest $AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com/find-longest-array:latest
           docker push $AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com/find-longest-array:latest
