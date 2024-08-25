@@ -1,3 +1,7 @@
+// <copyright file="Function.cs" company="PlaceholderCompany">
+// Copyright (c) PlaceholderCompany. All rights reserved.
+// </copyright>
+
 using Amazon.Lambda.Core;
 
 [assembly: LambdaSerializer(typeof(Amazon.Lambda.Serialization.SystemTextJson.DefaultLambdaJsonSerializer))]
@@ -20,14 +24,15 @@ public class Function
             var longestAcendingArray = FindLongestAscendingArray(integers);
 
             return string.Join(" ", longestAcendingArray);
-        } catch (Exception e)
+        }
+        catch (Exception e)
         {
             Console.WriteLine(e);
             return "Something went wrong";
         }
     }
 
-    public List<int> ParseStringToIntList(string input)
+    public static List<int> ParseStringToIntList(string input)
     {
         if (string.IsNullOrWhiteSpace(input))
         {
@@ -45,6 +50,7 @@ public class Function
                 {
                     throw new InvalidDataException($"Invalid - cannot convert to integer: {part}");
                 }
+
                 return result;
             })
             .ToList();
@@ -52,7 +58,7 @@ public class Function
         return integers;
     }
 
-    public List<int> FindLongestAscendingArray(List<int> arr)
+    public static List<int> FindLongestAscendingArray(List<int> arr)
     {
         var maxArray = new List<int>();
         if (arr == null || arr.Count == 0)
@@ -64,15 +70,17 @@ public class Function
         currentArray.Add(arr[0]);
         for (int i = 1; i < arr.Count; i++)
         {
-            if (arr[i] > arr[i-1])
+            if (arr[i] > arr[i - 1])
             {
                 currentArray.Add(arr[i]);
-            } else
+            }
+            else
             {
                 if (currentArray.Count > maxArray.Count)
                 {
                     maxArray = currentArray.ToList();
                 }
+
                 currentArray.Clear();
                 currentArray.Add(arr[i]);
             }

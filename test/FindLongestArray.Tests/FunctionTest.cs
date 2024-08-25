@@ -142,7 +142,7 @@ public class FunctionTest
         public void ParseIntListShouldSuccess()
         {
             var function = new Function();
-            var result = function.ParseStringToIntList("11 22 33 44 55");
+            var result = Function.ParseStringToIntList("11 22 33 44 55");
 
             Assert.Equal(new List<int> { 11,22,33,44,55}, result);
         }
@@ -153,7 +153,7 @@ public class FunctionTest
             var function = new Function();
             var errorMessage = "Invalid - cannot convert to integer: abc";
 
-            var act = () => function.ParseStringToIntList("11 abc 33 44 55");
+            var act = () => Function.ParseStringToIntList("11 abc 33 44 55");
 
             var exception = Assert.Throws<InvalidDataException>(act);
             Assert.Equal(errorMessage, exception.Message);

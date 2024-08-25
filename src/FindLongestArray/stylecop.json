@@ -1,0 +1,65 @@
+﻿{
+  "rules": {
+    "SA1000": {
+      "enabled": true // StyleCop rule for 'Keywords should be in the correct case'
+    },
+    "SA1001": {
+      "enabled": true // StyleCop rule for 'Comment should start with a capital letter'
+    },
+    "SA1005": {
+      "enabled": true // StyleCop rule for 'Single line comments should begin with a single space'
+    },
+    "SA1011": {
+      "enabled": true // StyleCop rule for 'Opening braces should not be preceded by blank line'
+    },
+    "SA1012": {
+      "enabled": true // StyleCop rule for 'Closing braces should not be preceded by blank line'
+    },
+    "SA1027": {
+      "enabled": true // StyleCop rule for 'Parameters should be on a new line'
+    },
+    "SA1055": {
+      "enabled": true // StyleCop rule for 'Unnecessary using directive'
+    },
+    "SA1101": {
+      "enabled": true // StyleCop rule for 'Prefix local calls with "this"'
+    },
+    "SA1200": {
+      "enabled": true // StyleCop rule for 'Using directives should be placed correctly'
+    },
+    "SA1201": {
+      "enabled": true // StyleCop rule for 'Elements should be ordered'
+    },
+    "SA1202": {
+      "enabled": true // StyleCop rule for 'Using directives should be placed at the top of the file'
+    },
+    "SA1203": {
+      "enabled": true // StyleCop rule for 'Namespace should be declared before class'
+    },
+    "SA1204": {
+      "enabled": true // StyleCop rule for 'Static member should appear before instance members'
+    },
+    "SA1205": {
+      "enabled": true // StyleCop rule for 'Partial methods should be defined'
+    },
+    "SA1300": {
+      "enabled": true // StyleCop rule for 'Element names should be in PascalCase'
+    },
+    "SA1302": {
+      "enabled": true // StyleCop rule for 'Field names should be camel case'
+    },
+    "SA1401": {
+      "enabled": true // StyleCop rule for 'Fields should be private'
+    },
+    "SA1500": {
+      "enabled": true // StyleCop rule for 'Braces should not be omitted'
+    }
+  },
+  "settings": {
+    "style": {
+      "indentation": {
+        "size": 4 // Number of spaces for indentation
+      }
+    }
+  }
+}
