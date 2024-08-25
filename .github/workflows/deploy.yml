@@ -31,3 +31,13 @@ jobs:
           docker build -t find-longest-array .
           docker tag find-longest-array:latest $AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com/find-longest-array:latest
           docker push $AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com/find-longest-array:latest
+
+      - name: Update Lambda function
+        env:
+          AWS_ACCOUNT_ID: ${{ secrets.AWS_ACCOUNT_ID }}
+          AWS_REGION: ${{ secrets.AWS_REGION }}
+        run: |
+          aws lambda update-function-code \
+            --function-name find-longest-array \
+            --image-uri $AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com/find-longest-array:latest \
+            --region $AWS_REGION
