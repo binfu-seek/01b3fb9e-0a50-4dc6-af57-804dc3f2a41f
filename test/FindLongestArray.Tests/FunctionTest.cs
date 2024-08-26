@@ -134,17 +134,56 @@ public class FunctionTest
             var result = _function.FunctionHandler(input, _context);
             Assert.Equal(expected, result);
         }
+
+        [Fact]
+        public void HandlerFunction_SuccessCase_NegativeNumbers()
+        {
+            string input = "-1 -2 -3 -4 -5";
+            var expected = "-1";
+
+            var result = _function.FunctionHandler(input, _context);
+            Assert.Equal(expected, result);
+        }
+
+        [Fact]
+        public void HandlerFunction_SuccessCase_Mixed()
+        {
+            string input = "-1 0 3 -4 -5 -6 -7";
+            var expected = "-1 0 3";
+
+            var result = _function.FunctionHandler(input, _context);
+            Assert.Equal(expected, result);
+        }
+
+        [Fact]
+        public void HandlerFunction_SuccessCase_EmptyString()
+        {
+            string input = "";
+            var expected = "";
+
+            var result = _function.FunctionHandler(input, _context);
+            Assert.Equal(expected, result);
+        }
     }
 
     public class ParseStringToIntListTests
     {
         [Fact]
-        public void ParseIntListShouldSuccess()
+        public void ParseIntList_PositiveNumbersShouldSuccess()
         {
             var function = new Function();
             var result = Function.ParseStringToIntList("11 22 33 44 55");
 
             Assert.Equal(new List<int> { 11,22,33,44,55}, result);
+        }
+
+        [Fact]
+        public void ParseIntList_NegativeNumbersShouldSuccess()
+        {
+            var function = new Function();
+            var result = Function.ParseStringToIntList("-11 -22 -33 -44 -55");
+
+            Assert.Equal(new List<int> { -11, -22, -33, -44, -55 }, result);
         }
 
         [Fact]

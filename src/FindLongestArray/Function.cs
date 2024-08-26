@@ -25,6 +25,11 @@ public class Function
 
             return string.Join(" ", longestAcendingArray);
         }
+        catch (InvalidDataException e)
+        {
+            Console.WriteLine(e);
+            return e.Message;
+        }
         catch (Exception e)
         {
             Console.WriteLine(e);
